@@ -26,7 +26,8 @@ monthly = st.slider("Monthly Charges", 100.0, 5000.0, 800.0)
 network_issues = st.slider("Network Issues (Last 3 Months)", 0, 20, 2)
 complaints = st.slider("Complaints (Last 3 Months)", 0, 10, 1)
 nps = st.slider("NPS Score", -100.0, 100.0, 20.0)
-auto_pay = st.selectbox("Auto Pay Enrolled", [0, 1])
+auto_pay_ui = st.selectbox("Auto Pay Enrolled", ["Yes", "No"])
+auto_pay = 1 if auto_pay_ui == "Yes" else 0
 
 input_dict = {col: 0 for col in features}
 
