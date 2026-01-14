@@ -44,7 +44,25 @@ prediction = model.predict(input_df)[0]
 probability = model.predict_proba(input_df)[0][1]
 
 if st.button("Predict Churn"):
+
     if prediction == 1:
         st.error(f"⚠️ High Churn Risk — Probability: {probability:.2%}")
+
+        st.subheader("📌 Recommended Retention Actions")
+
+        if network_issues > 3:
+            st.write("• Proactive network quality check and service credit")
+
+        if monthly > 1000:
+            st.write("• Personalized pricing or plan optimization")
+
+        if auto_pay == 0:
+            st.write("• Offer auto-pay enrollment incentive")
+
+        if complaints > 2:
+            st.write("• Priority customer support and faster resolution")
+
     else:
         st.success(f"✅ Low Churn Risk — Probability: {probability:.2%}")
+        st.write("• Continue standard engagement and loyalty programs")
+
